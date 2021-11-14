@@ -10,7 +10,7 @@ class Web extends Controller
     public function index()
     {
         
-         return view('layouts.web');
+         return view('websites.beranda');
         
     }
 }
