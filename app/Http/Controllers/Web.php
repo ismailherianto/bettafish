@@ -8,9 +8,7 @@ use Illuminate\Http\Request;
 class Web extends Controller
 {
     public function index()
-    {
-        
+    {   
          return view('websites.beranda');
-        
     }
 }
