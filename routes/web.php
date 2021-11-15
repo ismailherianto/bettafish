@@ -18,6 +18,9 @@ Route::get('/', function () {
 });
 
 Route::get('/web', 'Web@index')->name('website');
-Auth::routes();
+Route::get('/web/barang-toko', 'Web@barang_toko')->name('toko');
+Route::get('/web/barang-lelang', 'Web@barang_lelang')->name('lelang');
+
+// Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

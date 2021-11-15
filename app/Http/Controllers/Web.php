@@ -11,4 +11,14 @@ class Web extends Controller
     {   
          return view('websites.beranda');
     }
+
+    public function barang_toko()
+    {   
+         return view('websites.toko');
+    }
+
+    public function barang_lelang()
+    {   
+         return view('websites.lelang');
+    }
 }
