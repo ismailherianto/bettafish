@@ -50,16 +50,12 @@
 
       <div class="container">
         <div class="d-flex align-items-center">
-          <div class="site-logo">
-            <a href="index.html" class="d-block">
-              <img src="{{asset('temp_web/images/logo.png')}}" alt="Image" class="img-fluid">
-            </a>
-          </div>
+          
           <div class="mr-auto">
             <nav class="site-navigation position-relative text-right" role="navigation">
               <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
                 <li class="active">
-                  <a href="index.html" class="nav-link text-left text-black">Home</a>
+                  <a href="{{route('website')}}" class="nav-link text-left text-black">Home</a>
                 </li>
               </ul>                                                                
             </nav>
@@ -68,9 +64,7 @@
           <div class="ml-auto">
             <nav class="site-navigation position-relative text-right" role="navigation">
               <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
-                <li>
-                  <a href="#" class="nav-link text-left text-black">Kontak</a>
-                </li>
+                
                 <li class="has-children">
                   <a href="javascript:void(0)" class="nav-link text-left text-black">Barang</a>
                   <ul class="dropdown">
@@ -86,7 +80,7 @@
                   </ul>
                 </li>
                 <li>
-                  <a href="login.html" class="text-black">Sign In / Register</a>
+                  <a href="{{route('login-regist')}}" class="text-black">Sign In / Register</a>
                 </li>
               </ul>
             </nav>

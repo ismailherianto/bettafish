@@ -21,4 +21,9 @@ class Web extends Controller
     {   
          return view('websites.lelang');
     }
+
+    public function login_regist()
+    {   
+         return view('websites.login');
+    }
 }
