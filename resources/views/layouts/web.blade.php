@@ -59,7 +59,7 @@
             <nav class="site-navigation position-relative text-right" role="navigation">
               <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
                 <li class="active">
-                  <a href="index.html" class="nav-link text-left">Home</a>
+                  <a href="index.html" class="nav-link text-left text-black">Home</a>
                 </li>
               </ul>                                                                
             </nav>
@@ -69,24 +69,24 @@
             <nav class="site-navigation position-relative text-right" role="navigation">
               <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
                 <li>
-                  <a href="#" class="nav-link text-left">Kontak</a>
+                  <a href="#" class="nav-link text-left text-black">Kontak</a>
                 </li>
                 <li class="has-children">
-                  <a href="javascript:void(0)" class="nav-link text-left">Barang</a>
+                  <a href="javascript:void(0)" class="nav-link text-left text-black">Barang</a>
                   <ul class="dropdown">
                     <li><a href="{{route('toko')}}">Barang Toko</a></li>
                     <li><a href="{{route('lelang')}}">Barang Lelang</a></li> 
                   </ul>
                 </li>
                 <li class="has-children">
-                  <a href="javascript:void(0)" class="nav-link text-left">Tentang</a>
+                  <a href="javascript:void(0)" class="nav-link text-left text-black">Tentang</a>
                   <ul class="dropdown">
                     <li><a href="services.html">Info Lelang</a></li>
                     <li><a href="services.html">Info Toko</a></li>
                   </ul>
                 </li>
                 <li>
-                  <a href="login.html" class="text-white">Sign In / Register</a>
+                  <a href="login.html" class="text-black">Sign In / Register</a>
                 </li>
               </ul>
             </nav>
