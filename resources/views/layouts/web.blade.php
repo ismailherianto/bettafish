@@ -75,8 +75,8 @@
                 <li class="has-children">
                   <a href="javascript:void(0)" class="nav-link text-left text-black">Tentang</a>
                   <ul class="dropdown">
-                    <li><a href="services.html">Info Lelang</a></li>
-                    <li><a href="services.html">Info Toko</a></li>
+                    <li><a href="{{route('info-lelang')}}">Info Lelang</a></li>
+                    <li><a href="{{route('info-toko')}}">Info Toko</a></li>
                   </ul>
                 </li>
                 <li>

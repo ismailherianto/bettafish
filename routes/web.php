@@ -20,6 +20,9 @@ Route::get('/', function () {
 Route::get('/web', 'Web@index')->name('website');
 Route::get('/web/barang-toko', 'Web@barang_toko')->name('toko');
 Route::get('/web/barang-lelang', 'Web@barang_lelang')->name('lelang');
+Route::get('/web/info-toko', 'Web@info_toko')->name('info-toko');
+Route::get('/web/info-lelang', 'Web@info_lelang')->name('info-lelang');
+
 Route::get('web/login-regist','Web@login_regist')->name('login-regist');
 
 // Auth::routes();
