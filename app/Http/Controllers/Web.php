@@ -32,6 +32,16 @@ class Web extends Controller
          return view('websites.info_lelang');
     }
 
+    public function single_lelang()
+    {   
+         return view('websites.single_lelang');
+    }
+
+    public function single_toko()
+    {   
+         return view('websites.single_toko');
+    }
+
     public function login_regist()
     {   
          return view('websites.login');

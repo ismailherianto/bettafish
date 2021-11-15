@@ -15,10 +15,10 @@
         <div class="col-6 col-md-4 col-lg-3">
           <div class="item">
             <div>
-              <a href="item-single.html"><img src="{{asset('temp_web/images/product_'.$i.'.jpg')}}" alt="Image" class="img-fluid"></a>
+              <a href="{{route('single-lelang')}}"><img src="{{asset('temp_web/images/product_'.$i.'.jpg')}}" alt="Image" class="img-fluid"></a>
             </div>
             <div class="p-4">
-              <h3><a href="item-single.html">Pinky Shoes</a></h3>
+             
               <div class="d-flex mb-2">
                 <span>Jenis Ikan</span>
                 <span class="ml-auto">xxxxxxxx</span>
@@ -35,7 +35,7 @@
                 <span>Tanggal Tutup</span>
                 <span class="ml-auto">{{date('d-m-Y')}}</span>
               </div>
-              <a href="item-single.html" class="btn btn-bid">Submit a Bid</a>
+              
             </div>
             
           </div>
