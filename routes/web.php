@@ -13,9 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('admins.home');
+// });
 
 Route::get('/web', 'Web@index')->name('website');
 Route::get('/web/barang-toko', 'Web@barang_toko')->name('toko');
@@ -29,4 +29,4 @@ Route::get('web/login-regist','Web@login_regist')->name('login-regist');
 
 // Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/admin', 'HomeController@index')->name('home');
