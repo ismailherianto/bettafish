@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,8 +28,9 @@ Route::get('/web/single-lelang', 'Web@single_lelang')->name('single-lelang');
 
 Route::get('web/login-regist','Web@login_regist')->name('login-regist');
 
-// Auth::routes();
+Auth::routes();
 
+Route::post('register','User@store')->name('register_user');
 Route::get('/admin', 'HomeController@index')->name('home');
 //Lelang
 Route::get('/admin/barang-lelang', 'BarangLelang@index')->name('master_brg_lelang');

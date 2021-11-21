@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\UserAcc;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class User extends Controller
 {
@@ -24,8 +26,25 @@ class User extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        //
+    {   
+        $name      = $request->name; 
+        $hp        = $request->hp;
+        $email     = $request->email;
+        $instagram = $request->instagram;
+        $alamat    = $request->alamat;
+        $password  = $request->password;
+        try {
+            $user = new UserAcc;
+            $user->nama = $name; 
+            $user->email = $email; 
+            $user->password = Hash::make($password); 
+            $user->kontak = $hp; 
+            $user->alamat = $alamat; 
+            $user->instagram = $instagram;
+            $user->save();            
+        } catch (\Throwable $th) {
+            dd($th);
+        }
     }
 
     /**

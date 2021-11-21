@@ -80,7 +80,14 @@
                   </ul>
                 </li>
                 <li>
-                  <a href="{{route('login-regist')}}" class="text-black">Sign In / Register</a>
+                  @guest
+                    <a href="{{route('login')}}" class="text-black">Sign In / Register</a>
+                  @else
+                    <a href="{{ route('logout') }}" class="text-black" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                      @csrf
+                    </form>
+                  @endguest
                 </li>
               </ul>
             </nav>
