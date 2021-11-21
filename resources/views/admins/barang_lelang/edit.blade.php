@@ -20,34 +20,44 @@
               </div>
               <!-- /.box-header -->
               <!-- form start -->
-              <form role="form">
+              <form role="form" method="POST" action="{{ route('brg_lelang.update',$brg_lelang->id) }}" enctype="multipart/form-data">
+                @csrf
+                @method('PUT')
                 <div class="box-body">
                   <div class="form-group">
                     <label for="nama_barang">Nama Barang</label>
-                    <input type="text" class="form-control" id="nama_barang" placeholder="Nama Barang">
+                    <input type="text" name="nama_barang" value="{{$brg_lelang->brand}}" class="form-control" id="nama_barang" placeholder="Nama Barang">
                   </div>
                   <div class="form-group">
                     <label for="jenis_ikan">Jenis Ikan</label>
                     <input type="text" class="form-control" id="jenis_ikan" placeholder="Jenis Ikan">
                   </div>
                   <div class="form-group">
-                    <label for="jenis_ikan">Deskripsi</label>
-                    <textarea class="form-control" name="deskripsi" id="desc"></textarea>
+                    <label for="deskripsi">Deskripsi</label>
+                    <textarea class="form-control" name="deskripsi" id="desc">{{$brg_lelang->keterangan}}</textarea>
                   </div>
                   <div class="form-group">
                     <label for="jenis_ikan">Tanggal tutup</label>
-                    <input type="date" class="form-control" id="tgl_tutup" placeholder="Tanggal Tutup">
+                    <input type="date" name="tgl_tutup" class="form-control" id="tgl_tutup" placeholder="Tanggal Tutup">
                   </div>
                   <div class="form-group">
                     <label for="jenis_ikan">Harga Buka</label>
-                    <input type="number" min="0" class="form-control" id="hrg_buka" placeholder="Harga Buka">
+                    <input type="number" value="{{$brg_lelang->harga_buka}}" name="hrg_buka" min="0" class="form-control" id="hrg_buka" placeholder="Harga Buka">
                   </div>
                   <div class="form-group">
-                    <label for="gambar">Gambar</label>
-                    <input type="file" name="gambar" id="gambar">
+                    <label for="foto">Foto 1</label>
+                    <input type="file" name="foto" id="foto">
                   </div>
                   <div class="form-group">
-                    <label for="gambar">Video</label>
+                    <label for="foto2">Foto 2</label>
+                    <input type="file" name="foto2" id="foto2">
+                  </div>
+                  <div class="form-group">
+                    <label for="foto3">Foto 3</label>
+                    <input type="file" name="foto3" id="foto3">
+                  </div>
+                  <div class="form-group">
+                    <label for="video">Video</label>
                     <input type="file" name="video" id="video">
                   </div>
                   {{-- <div class="checkbox">

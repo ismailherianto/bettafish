@@ -26,32 +26,36 @@
             <table id="table" class="table table-bordered table-striped">
               <thead>
               <tr>
-                <th>Rendering engine</th>
-                <th>Browser</th>
-                <th>Platform(s)</th>
-                <th>Engine version</th>
-                <th>CSS grade</th>
+                <th>Nama Barang</th>
+                <th>Tanggal Tutup</th>
+                <th>Harga Buka</th>
+                <th>Foto 1</th>
+                <th>Foto 2</th>
+                <th>Foto 3</th>
+                <th>Video</th>
+                <th>Status</th>
+                <th>Aksi</th>
               </tr>
               </thead>
               <tbody>
-              <tr>
-                <td>Trident</td>
-                <td>Internet
-                  Explorer 4.0
-                </td>
-                <td>Win 95+</td>
-                <td> 4</td>
-                <td>X</td>
-              </tr>
-              <tr>
-                <td>Trident</td>
-                <td>Internet
-                  Explorer 5.0
-                </td>
-                <td>Win 95+</td>
-                <td>5</td>
-                <td>C</td>
-              </tr>
+              @foreach ($barang_lelang as $item)
+                <tr>
+                  <td>{{$item->brand}}</td>
+                  <td>{{\Carbon\Carbon::parse($item->tgl_tutup)->format('d-m-Y')}}</td>
+                  <td>{{number_format($item->harga_buka)}}</td>
+                  <td>{{$item->foto}}</td>
+                  <td>{{$item->foto2}}</td>
+                  <td>{{$item->foto3}}</td>
+                  <td>{{$item->video}}</td>
+                  <td>{{$item->status}}</td>
+                  <td>
+                    <div class="btn-group">
+                      <a class="btn btn-info btn-xs" href="{{ route('brg_lelang.edit',$item->id) }}">Edit</a>
+                    </div>
+                  </td>
+                </tr>
+              @endforeach
+              </tbody>
             </table>
           </div>
           <!-- /.box-body -->
