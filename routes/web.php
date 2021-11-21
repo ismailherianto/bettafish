@@ -30,3 +30,21 @@ Route::get('web/login-regist','Web@login_regist')->name('login-regist');
 // Auth::routes();
 
 Route::get('/admin', 'HomeController@index')->name('home');
+//Lelang
+Route::get('/admin/barang-lelang', 'BarangLelang@index')->name('master_brg_lelang');
+Route::get('/admin/list_barang_lelang', 'BarangLelang@listData')->name('list_brg_lelang');
+Route::resource('brg_lelang','BarangLelang');
+//Toko
+Route::get('/admin/barang-toko', 'BarangToko@index')->name('master_brg_toko');
+Route::get('/admin/list_barang_toko', 'BarangToko@listData')->name('list_brg_toko');
+Route::resource('brg_toko','BarangToko');
+// Info
+/* Lelang */
+Route::get('/admin/info_lelang','InfoLelang@index')->name('master_info_lelang');
+Route::get('/admin/list_info_lelang','InfoLelang@listData')->name('list_info_lelang');
+Route::resource('info_lelang','InfoLelang');
+
+/* Toko */
+Route::get('/admin/info_toko','InfoToko@index')->name('master_info_toko');
+Route::get('/admin/list_info_toko','InfoToko@listData')->name('list_info_toko');
+Route::resource('info_toko','InfoToko');

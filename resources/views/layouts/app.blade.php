@@ -17,6 +17,7 @@
   <link rel="stylesheet" href="{{asset('temp_admin/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css')}}">
   <link rel="stylesheet" href="{{asset('temp_admin/bower_components/bootstrap-daterangepicker/daterangepicker.css')}}">
   <link rel="stylesheet" href="{{asset('temp_admin/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css')}}">
+  <link rel="stylesheet" href="{{asset('temp_admin/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css')}}">
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -111,12 +112,12 @@
             </a>
         </li>
         <li>
-            <a href="#">
+            <a href="{{route('master_brg_lelang')}}">
                 <i class="fa fa-bank"></i> <span>Lelang</span>
             </a>
         </li>
         <li>
-            <a href="#">
+            <a href="{{route('master_brg_toko')}}">
                 <i class="fa fa-cubes"></i> <span>Barang</span>
             </a>
         </li>
@@ -126,12 +127,12 @@
             </a>
         </li>
         <li>
-            <a href="#">
+            <a href="{{route('master_info_lelang')}}">
                 <i class="fa fa-bullhorn"></i> <span>Info Lelang</span>
             </a>
         </li>
         <li>
-            <a href="#">
+            <a href="{{route('master_info_toko')}}">
                 <i class="fa fa-desktop"></i> <span>Tentang Toko</span>
             </a>
         </li>
@@ -180,6 +181,8 @@
 <script src="{{asset('temp_admin/bower_components/fastclick/lib/fastclick.js')}}"></script>
 <script src="{{asset('temp_admin/dist/js/adminlte.min.js')}}"></script>
 <script src="{{asset('temp_admin/dist/js/pages/dashboard.js')}}"></script>
+<script src="{{asset('temp_admin/bower_components/datatables.net/js/jquery.dataTables.min.js')}}"></script>
+<script src="{{asset('temp_admin/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js')}}"></script>
 @yield('script')
 </body>
 </html>
