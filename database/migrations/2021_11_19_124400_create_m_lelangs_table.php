@@ -13,9 +13,18 @@ class CreateMLelangsTable extends Migration
      */
     public function up()
     {
-        Schema::create('m_lelangs', function (Blueprint $table) {
+        Schema::create('t_lelang', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->string('brand',100);
+            $table->text('keterangan');
+            $table->dateTime('tgl_buka');
+            $table->dateTime('tgl_tutup');
+            $table->integer('harga_buka');
+            $table->string('foto',255)->nullable();
+            $table->string('foto2',255)->nullable();
+            $table->string('foto3',255)->nullable();
+            $table->string('video',255)->nullable();
+            $table->enum('status',['0','1'])->default('1');
         });
     }
 

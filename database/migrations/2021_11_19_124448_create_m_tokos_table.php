@@ -13,9 +13,14 @@ class CreateMTokosTable extends Migration
      */
     public function up()
     {
-        Schema::create('m_tokos', function (Blueprint $table) {
+        Schema::create('t_tentangToko', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->string('foto',100);
+            $table->text('alamat');
+            $table->string('kontak',20);
+            $table->string('email',100);
+            $table->string('instagram',100);
+            $table->text('deskripsi');
         });
     }
 

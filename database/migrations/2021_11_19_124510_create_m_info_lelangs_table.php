@@ -13,9 +13,10 @@ class CreateMInfoLelangsTable extends Migration
      */
     public function up()
     {
-        Schema::create('m_info_lelangs', function (Blueprint $table) {
+        Schema::create('t_infoLelang', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->string('foto',100);
+            $table->text('deskripsi');
         });
     }
 

@@ -19,6 +19,7 @@
         <div class="box">
           <div class="box-header">
             <h3 class="box-title">Info Toko</h3>
+            <div class="pull-right"><a href="{{url('info_toko/create')}}" class="btn btn-success">Tambah Data</a></div>
           </div>
           <!-- /.box-header -->
           <div class="box-body">

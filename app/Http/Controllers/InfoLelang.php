@@ -14,7 +14,7 @@ class InfoLelang extends Controller
      */
     public function index()
     {
-        //
+        return view('admins/info.lelang');
     }
 
     /**
@@ -24,7 +24,7 @@ class InfoLelang extends Controller
      */
     public function create()
     {
-        //
+        return view('admins/info.addLelang');
     }
 
     /**
@@ -35,7 +35,7 @@ class InfoLelang extends Controller
      */
     public function store(Request $request)
     {
-        //
+        dd($request->all());
     }
 
     /**

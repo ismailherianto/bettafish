@@ -13,9 +13,16 @@ class CreateBarangsTable extends Migration
      */
     public function up()
     {
-        Schema::create('barangs', function (Blueprint $table) {
+        Schema::create('t_barang', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->string('brand',100);
+            $table->text('keterangan');
+            $table->integer('harga_barang');
+            $table->string('foto',255)->nullable();
+            $table->string('foto2',255)->nullable();
+            $table->string('foto3',255)->nullable();
+            $table->string('video',255)->nullable();
+            $table->enum('status',['0','1'])->default('1');
         });
     }
 

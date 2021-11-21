@@ -14,7 +14,7 @@ class InfoToko extends Controller
      */
     public function index()
     {
-        //
+        return view('admins/info.toko');
     }
 
     /**
@@ -24,7 +24,7 @@ class InfoToko extends Controller
      */
     public function create()
     {
-        //
+        return view('admins/info.addToko');
     }
 
     /**
