@@ -3,7 +3,7 @@
 @section('content')
 <div class="hero-slide owl-carousel site-blocks-cover">
     <div class="intro-section" style="background-image: url('');">
-      <img src="{{asset('temp_web/images/hero_1.jpg')}}" alt="">
+      <img src="{{asset('img/'.$img['foto'])}}" alt="">
     </div>
     
   
@@ -14,12 +14,12 @@
         <p>
             <h2>Info Toko</h2>
             <ul>
-                <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit, nihil.</li>
-                <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit, nihil.</li>
-                <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit, nihil.</li>
-                <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit, nihil.</li>
-                <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit, nihil.</li>
-                <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit, nihil.</li>
+                @foreach ($info_toko as $item)
+                    <li>{{$item->instagram}}</li>
+                    <li>{{$item->kontak}}</li>
+                    <li>{{$item->email}}</li>
+                    <li>{{$item->alamat}}</li>
+                @endforeach
             </ul>
         </p>
     </div>

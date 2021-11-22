@@ -3,7 +3,7 @@
 @section('content')
 <div class="hero-slide owl-carousel site-blocks-cover">
     <div class="intro-section">
-      <img src="{{asset('temp_web/images/hero_1.jpg')}}" alt="">
+        <img src="{{asset('img/'.$img['foto'])}}" alt="">
     </div>
     
   
@@ -13,14 +13,7 @@
     <div class="container">
         <p>
             <h2>Info Lelang</h2>
-            <ul>
-                <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit, nihil.</li>
-                <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit, nihil.</li>
-                <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit, nihil.</li>
-                <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit, nihil.</li>
-                <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit, nihil.</li>
-                <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit, nihil.</li>
-            </ul>
+            {!!$info_lelang['deskripsi']!!}
         </p>
     </div>
 </div>
