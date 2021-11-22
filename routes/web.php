@@ -26,6 +26,8 @@ Route::group(['middleware'=>['web','cekuser:0','cekstatus:1']],function(){
     Route::get('/web/info-lelang', 'Web@info_lelang')->name('info-lelang');
     Route::get('/web/single-toko', 'Web@single_toko')->name('single-toko');
     Route::get('/web/single-lelang', 'Web@single_lelang')->name('single-lelang');
+
+    //progress
 });
 
 
@@ -45,7 +47,6 @@ Route::group(['middleware'=>['web','cekuser:1','cekstatus:1']],function(){
     
     /* Toko */
     Route::get('/admin/info_toko','InfoToko@index')->name('master_info_toko');
-    Route::get('/admin/list_info_toko','InfoToko@listData')->name('list_info_toko');
     Route::resource('info_toko','InfoToko');
 });
 // Route::get('web/login-regist','Web@login_regist')->name('login-regist');

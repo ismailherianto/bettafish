@@ -10,7 +10,7 @@
       <li><a href="#">Barang</a></li>
       <li class="active">Barang Toko</li>
     </ol>
-  </section>
+</section>
 
   <!-- Main content -->
   <section class="content">
@@ -26,32 +26,44 @@
             <table id="table" class="table table-bordered table-striped">
               <thead>
               <tr>
-                <th>Rendering engine</th>
-                <th>Browser</th>
-                <th>Platform(s)</th>
-                <th>Engine version</th>
-                <th>CSS grade</th>
+                <th>Nama Barang</th>
+                <th>Harga</th>
+                <th>Foto 1</th>
+                <th>Foto 2</th>
+                <th>Foto 3</th>
+                <th>Video</th>
+                <th>Status</th>
+                <th>Aksi</th>
               </tr>
               </thead>
               <tbody>
-              <tr>
-                <td>Trident</td>
-                <td>Internet
-                  Explorer 4.0
-                </td>
-                <td>Win 95+</td>
-                <td> 4</td>
-                <td>X</td>
-              </tr>
-              <tr>
-                <td>Trident</td>
-                <td>Internet
-                  Explorer 5.0
-                </td>
-                <td>Win 95+</td>
-                <td>5</td>
-                <td>C</td>
-              </tr>
+              @foreach ($barang_toko as $item)
+                <tr>
+                  <td>{{$item->brand}}</td>
+                  <td>{{number_format($item->harga)}}</td>
+                  <td><img src="{{asset('img/'.$item->foto)}}" width="150" alt=""></td>
+                  <td><img src="{{asset('img/'.$item->foto2)}}" width="150" alt=""></td>
+                  <td><img src="{{asset('img/'.$item->foto3)}}" width="150" alt=""></td>
+                  <td><video src="{{asset('img/'.$item->video)}}" width="150" alt=""></video></td> 
+                  @if ($item->status == '1')
+                    <td>Tersedia</td> 
+                  @else
+                    <td>Terjual</td> 
+                  @endif
+                  <td>
+                    <div class="btn-group">
+                      <form action="{{ route('brg_toko.destroy',$item->id) }}" method="POST">
+                      <a class="btn btn-info btn-xs" href="{{ route('brg_toko.edit',$item->id) }}">Edit</a>
+                      
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger btn-xs">Hapus</button>
+                      </form>
+                    </div>
+                  </td>
+                </tr>
+              @endforeach
+              </tbody>
             </table>
           </div>
           <!-- /.box-body -->

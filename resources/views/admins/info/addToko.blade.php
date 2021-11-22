@@ -20,12 +20,12 @@
               </div>
               <!-- /.box-header -->
               <!-- form start -->
-              <form role="form" method="POST" action="{{url('brg_toko')}}" enctype="multipart/form-data">
+              <form role="form" method="POST" action="{{url('info_toko')}}" enctype="multipart/form-data">
                 @csrf
                 <div class="box-body">
                     <div class="form-group">
-                     <label for="gambar">Gambar</label>
-                    <input type="file" name="gambar" id="gambar">
+                     <label for="foto">Foto</label>
+                    <input type="file" name="foto" id="foto">
                     </div>
                     <div class="form-group">
                         <label for="alamat">Alamat</label>
@@ -45,7 +45,7 @@
                     </div>
                     <div class="form-group">
                       <label for="desc">Deskripsi</label>
-                      <textarea class="form-control" name="deskripsi" id="desc"></textarea>
+                      <textarea class="form-control" name="desc" id="desc"></textarea>
                     </div>
                 </div>
                 <!-- /.box-body -->

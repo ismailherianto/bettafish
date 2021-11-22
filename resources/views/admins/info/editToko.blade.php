@@ -20,32 +20,33 @@
               </div>
               <!-- /.box-header -->
               <!-- form start -->
-              <form role="form" method="POST" action="{{url('brg_toko')}}" enctype="multipart/form-data">
+              <form role="form" method="POST" action="{{ route('info_toko.update',$info_toko->id) }}" enctype="multipart/form-data">
                 @csrf
+                @method('PUT')
                 <div class="box-body">
                     <div class="form-group">
-                     <label for="gambar">Gambar</label>
-                    <input type="file" name="gambar" id="gambar">
+                     <label for="foto">Foto</label>
+                    <input type="file" name="foto" id="foto">
                     </div>
                     <div class="form-group">
                         <label for="alamat">Alamat</label>
-                        <textarea name="alamat" class="form-control" id="alamat" cols="30" rows="10"></textarea>
+                        <textarea name="alamat" class="form-control" id="alamat" cols="30" rows="10">{{$info_toko->alamat}}</textarea>
                     </div>
                     <div class="form-group">
                         <label for="kontak">No.HP/WA</label>
-                        <input name="kontak" id="kontak" type="text" class="form-control" placeholder="Nomor HP / WA">
+                        <input name="kontak" id="kontak" value="{{$info_toko->kontak}}" type="text" class="form-control" placeholder="Nomor HP / WA">
                     </div>
                     <div class="form-group">
                         <label for="email">Email</label>
-                        <input name="email" id="email" type="email" class="form-control" placeholder="Email Toko">
+                        <input name="email" id="email" value="{{$info_toko->email}}" type="email" class="form-control" placeholder="Email Toko">
                     </div>
                     <div class="form-group">
                         <label for="instagram">Instagram</label>
-                        <input name="instagram" id="instagram" type="text" class="form-control" placeholder="Instagram">
+                        <input name="instagram" value="{{$info_toko->instagram}}" id="instagram" type="text" class="form-control" placeholder="Instagram">
                     </div>
                     <div class="form-group">
                       <label for="desc">Deskripsi</label>
-                      <textarea class="form-control" name="deskripsi" id="desc"></textarea>
+                      <textarea class="form-control" name="desc" id="desc">{{$info_toko->deskripsi}}</textarea>
                     </div>
                 </div>
                 <!-- /.box-body -->

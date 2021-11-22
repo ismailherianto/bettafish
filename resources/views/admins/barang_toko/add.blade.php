@@ -25,11 +25,7 @@
                 <div class="box-body">
                   <div class="form-group">
                     <label for="nama_barang">Nama Barang</label>
-                    <input type="text" class="form-control" id="nama_barang" placeholder="Nama Barang">
-                  </div>
-                  <div class="form-group">
-                    <label for="jenis_ikan">Jenis Ikan</label>
-                    <input type="text" class="form-control" id="jenis_ikan" placeholder="Jenis Ikan">
+                    <input type="text" class="form-control" name="nama_barang" id="nama_barang" placeholder="Nama Barang">
                   </div>
                   <div class="form-group">
                     <label for="jenis_ikan">Deskripsi</label>
@@ -37,14 +33,22 @@
                   </div>
                   <div class="form-group">
                     <label for="jenis_ikan">Harga</label>
-                    <input type="number" min="0" class="form-control" id="hrg_buka" placeholder="Harga Barang">
+                    <input type="number" name="harga" min="0" class="form-control" id="hrg_buka" placeholder="Harga Barang">
                   </div>
                   <div class="form-group">
-                    <label for="gambar">Gambar</label>
-                    <input type="file" name="gambar" id="gambar">
+                    <label for="foto">Foto 1</label>
+                    <input type="file" name="foto" id="foto">
                   </div>
                   <div class="form-group">
-                    <label for="gambar">Video</label>
+                    <label for="foto">Foto 2</label>
+                    <input type="file" name="foto2" id="foto">
+                  </div>
+                  <div class="form-group">
+                    <label for="foto">Foto 3</label>
+                    <input type="file" name="foto3" id="foto">
+                  </div>
+                  <div class="form-group">
+                    <label for="foto">Video</label>
                     <input type="file" name="video" id="video">
                   </div>
                   {{-- <div class="checkbox">

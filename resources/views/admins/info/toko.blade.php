@@ -8,9 +8,9 @@
     <ol class="breadcrumb">
       <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
       <li><a href="#">Info</a></li>
-      <li class="active">Info Toko</li>
+      <li class="active">Toko</li>
     </ol>
-  </section>
+</section>
 
   <!-- Main content -->
   <section class="content">
@@ -18,40 +18,46 @@
       <div class="col-xs-12">
         <div class="box">
           <div class="box-header">
-            <h3 class="box-title">Info Toko</h3>
-            <div class="pull-right"><a href="{{url('info_toko/create')}}" class="btn btn-success">Tambah Data</a></div>
+            <h3 class="box-title">Data Info Toko</h3>
+            <div class="pull-right"><a href="{{url('info_toko/create')}}" class="btn btn-small btn-success">Tambah Data</a></div>
           </div>
           <!-- /.box-header -->
           <div class="box-body">
             <table id="table" class="table table-bordered table-striped">
               <thead>
               <tr>
-                <th>Rendering engine</th>
-                <th>Browser</th>
-                <th>Platform(s)</th>
-                <th>Engine version</th>
-                <th>CSS grade</th>
+                <th>No</th>
+                <th>Foto</th>
+                <th>Kontak</th>
+                <th>Alamat</th>
+                <th>Email</th>
+                <th>Instagram</th>
+                <th>Aksi</th>
               </tr>
               </thead>
               <tbody>
-              <tr>
-                <td>Trident</td>
-                <td>Internet
-                  Explorer 4.0
-                </td>
-                <td>Win 95+</td>
-                <td> 4</td>
-                <td>X</td>
-              </tr>
-              <tr>
-                <td>Trident</td>
-                <td>Internet
-                  Explorer 5.0
-                </td>
-                <td>Win 95+</td>
-                <td>5</td>
-                <td>C</td>
-              </tr>
+              @foreach ($info_toko as $item)
+                <tr>
+                  <td>{{$no++}}</td>
+                  <td align="center"><img src="{{asset('img/'.$item->foto)}}" width="150" alt=""></td>
+                  <td>{{$item->kontak}}</td>
+                  <td>{{$item->alamat}}</td>
+                  <td>{{$item->email}}</td>
+                  <td>{{$item->instagram}}</td>
+                  <td align="center">
+                    <div class="btn-group">
+                      <form action="{{ route('info_toko.destroy',$item->id) }}" method="POST">
+                      <a class="btn btn-info btn-xs" href="{{ route('info_toko.edit',$item->id) }}">Edit</a>
+                      
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger btn-xs">Hapus</button>
+                      </form>
+                    </div>
+                  </td>
+                </tr>
+              @endforeach
+              </tbody>
             </table>
           </div>
           <!-- /.box-body -->
@@ -66,7 +72,12 @@
   @section('script')
   <script>
       $(function () {
-            $('#table').DataTable()
+            $('#table').DataTable({
+              'paging'      : false,
+              'searching'   : false,
+              'ordering'    : false,
+              'info'        : false
+            })
         })
   
   </script>    

@@ -20,16 +20,17 @@
               </div>
               <!-- /.box-header -->
               <!-- form start -->
-              <form role="form" method="POST" action="{{url('brg_lelang')}}" enctype="multipart/form-data">
+              <form role="form" method="POST" action="{{ route('info_lelang.update',$info_lelang->id) }}" enctype="multipart/form-data">
                 @csrf
+                @method('PUT')
                 <div class="box-body">
                     <div class="form-group">
-                     <label for="gambar">Gambar</label>
-                    <input type="file" name="gambar" id="gambar">
+                     <label for="foto">Foto</label>
+                    <input type="file" name="foto" id="foto">
                     </div>
                     <div class="form-group">
                       <label for="desc">Deskripsi</label>
-                      <textarea class="form-control" name="deskripsi" id="desc"></textarea>
+                      <textarea class="form-control" name="desc" id="desc">{{$info_lelang->deskripsi}}</textarea>
                     </div>
                 </div>
                 <!-- /.box-body -->

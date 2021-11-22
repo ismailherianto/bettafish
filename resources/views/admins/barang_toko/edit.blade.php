@@ -2,12 +2,12 @@
 @section('content')
 <section class="content-header">
     <h1>
-      Barang Lelang
+      Barang Toko
     </h1>
     <ol class="breadcrumb">
       <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
       <li><a href="#">Barang</a></li>
-      <li class="active">Edit Barang Lelang</li>
+      <li class="active">Edit Barang Toko</li>
     </ol>
 </section>
 <section class="content">
@@ -16,45 +16,47 @@
             <!-- general form elements -->
             <div class="box box-primary">
               <div class="box-header with-border">
-                <h3 class="box-title">Edit Lelang</h3>
+                <h3 class="box-title">Edit Barang Toko</h3>
               </div>
               <!-- /.box-header -->
               <!-- form start -->
-              <form role="form">
+              <form role="form" method="POST" action="{{ route('brg_toko.update',$brg_toko->id) }}" enctype="multipart/form-data">
+                @csrf
+                @method('PUT')
                 <div class="box-body">
                   <div class="form-group">
                     <label for="nama_barang">Nama Barang</label>
-                    <input type="text" class="form-control" id="nama_barang" placeholder="Nama Barang">
+                    <input type="text" name="nama_barang" value="{{$brg_toko->brand}}" class="form-control" id="nama_barang" placeholder="Nama Barang">
                   </div>
                   <div class="form-group">
-                    <label for="jenis_ikan">Jenis Ikan</label>
-                    <input type="text" class="form-control" id="jenis_ikan" placeholder="Jenis Ikan">
+                    <label for="deskripsi">Deskripsi</label>
+                    <textarea class="form-control" name="deskripsi" id="desc">{{$brg_toko->keterangan}}</textarea>
                   </div>
                   <div class="form-group">
-                    <label for="jenis_ikan">Deskripsi</label>
-                    <textarea class="form-control" name="deskripsi" id="desc"></textarea>
+                    <label for="jenis_ikan">Harga</label>
+                    <input type="number" value="{{$brg_toko->harga}}" name="harga" min="0" class="form-control" id="hrg_buka" placeholder="Harga Buka">
                   </div>
                   <div class="form-group">
-                    <label for="jenis_ikan">Tanggal tutup</label>
-                    <input type="date" class="form-control" id="tgl_tutup" placeholder="Tanggal Tutup">
+                    <label for="foto">Foto 1</label>
+                    <input type="file" name="foto" id="foto">
                   </div>
                   <div class="form-group">
-                    <label for="jenis_ikan">Harga Buka</label>
-                    <input type="number" min="0" class="form-control" id="hrg_buka" placeholder="Harga Buka">
+                    <label for="foto2">Foto 2</label>
+                    <input type="file" name="foto2" id="foto2">
                   </div>
                   <div class="form-group">
-                    <label for="gambar">Gambar</label>
-                    <input type="file" name="gambar" id="gambar">
+                    <label for="foto3">Foto 3</label>
+                    <input type="file" name="foto3" id="foto3">
                   </div>
                   <div class="form-group">
-                    <label for="gambar">Video</label>
+                    <label for="video">Video</label>
                     <input type="file" name="video" id="video">
                   </div>
-                  {{-- <div class="checkbox">
+                  <div class="checkbox">
                     <label>
-                      <input type="checkbox"> Check me out
+                      <input type="checkbox" name="status" value="1"  @if($brg_toko->status == '1') {{'checked'}} @endif> Tersedia ?
                     </label>
-                  </div> --}}
+                  </div>
                 </div>
                 <!-- /.box-body -->
         

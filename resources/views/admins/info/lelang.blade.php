@@ -8,9 +8,9 @@
     <ol class="breadcrumb">
       <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
       <li><a href="#">Info</a></li>
-      <li class="active">Info Lelang</li>
+      <li class="active">Lelang</li>
     </ol>
-  </section>
+</section>
 
   <!-- Main content -->
   <section class="content">
@@ -18,40 +18,38 @@
       <div class="col-xs-12">
         <div class="box">
           <div class="box-header">
-            <h3 class="box-title">Info Lelang</h3>
-            <div class="pull-right"><a href="{{url('info_lelang/create')}}" class="btn btn-success">Tambah Data</a></div>
+            <h3 class="box-title">Data Info Lelang</h3>
+            <div class="pull-right"><a href="{{url('info_lelang/create')}}" class="btn btn-small btn-success">Tambah Data</a></div>
           </div>
           <!-- /.box-header -->
           <div class="box-body">
             <table id="table" class="table table-bordered table-striped">
               <thead>
               <tr>
-                <th>Rendering engine</th>
-                <th>Browser</th>
-                <th>Platform(s)</th>
-                <th>Engine version</th>
-                <th>CSS grade</th>
+                <th>No</th>
+                <th>Foto</th>
+                <th>Aksi</th>
               </tr>
               </thead>
               <tbody>
-              <tr>
-                <td>Trident</td>
-                <td>Internet
-                  Explorer 4.0
-                </td>
-                <td>Win 95+</td>
-                <td> 4</td>
-                <td>X</td>
-              </tr>
-              <tr>
-                <td>Trident</td>
-                <td>Internet
-                  Explorer 5.0
-                </td>
-                <td>Win 95+</td>
-                <td>5</td>
-                <td>C</td>
-              </tr>
+              @foreach ($info_lelang as $item)
+                <tr>
+                  <td>{{$no++}}</td>
+                  <td align="center"><img src="{{asset('img/'.$item->foto)}}" width="150" alt=""></td>
+                  <td align="center">
+                    <div class="btn-group">
+                      <form action="{{ route('info_lelang.destroy',$item->id) }}" method="POST">
+                      <a class="btn btn-info btn-xs" href="{{ route('info_lelang.edit',$item->id) }}">Edit</a>
+                      
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger btn-xs">Hapus</button>
+                      </form>
+                    </div>
+                  </td>
+                </tr>
+              @endforeach
+              </tbody>
             </table>
           </div>
           <!-- /.box-body -->
@@ -66,7 +64,12 @@
   @section('script')
   <script>
       $(function () {
-            $('#table').DataTable()
+            $('#table').DataTable({
+              'paging'      : false,
+              'searching'   : false,
+              'ordering'    : false,
+              'info'        : false
+            })
         })
   
   </script>    

@@ -43,11 +43,15 @@
                   <td>{{$item->brand}}</td>
                   <td>{{\Carbon\Carbon::parse($item->tgl_tutup)->format('d-m-Y')}}</td>
                   <td>{{number_format($item->harga_buka)}}</td>
-                  <td>{{$item->foto}}</td>
-                  <td>{{$item->foto2}}</td>
-                  <td>{{$item->foto3}}</td>
-                  <td>{{$item->video}}</td>
-                  <td>{{$item->status}}</td>
+                  <td><img src="{{asset('img/'.$item->foto)}}" width="150" alt=""></td>
+                  <td><img src="{{asset('img/'.$item->foto2)}}" width="150" alt=""></td>
+                  <td><img src="{{asset('img/'.$item->foto3)}}" width="150" alt=""></td>
+                  <td><video src="{{asset('img/'.$item->video)}}" width="150" alt=""></video></td> 
+                  @if ($item->status == '1')
+                    <td>Berlangsung</td> 
+                  @else
+                    <td>Tutup</td> 
+                  @endif
                   <td>
                     <div class="btn-group">
                       <a class="btn btn-info btn-xs" href="{{ route('brg_lelang.edit',$item->id) }}">Edit</a>

@@ -4,9 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class mInfoLelang extends Model
+class mInfoToko extends Model
 {
-    protected $table = 't_infolelang';
+    protected $table = 't_tentangtoko';
     protected $primaryKey = 'id';
     public $timestamps = false;
 }

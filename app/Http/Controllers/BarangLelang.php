@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\mLelang;
+use App\mToko;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class BarangLelang extends Controller
@@ -137,6 +139,8 @@ class BarangLelang extends Controller
             $nama_file = time().Str::random(3).'.'.$request->foto->extension();
             $request->foto->move('img',$nama_file);
 
+            
+            Storage::delete($barang_lelang->foto);
             $barang_lelang->foto = $nama_file;
         }
 
@@ -147,6 +151,8 @@ class BarangLelang extends Controller
             $nama_file = time().Str::random(3).'.'.$request->foto2->extension();
             $request->foto2->move('img',$nama_file);
 
+            
+            Storage::delete($barang_lelang->foto2);
             $barang_lelang->foto2 = $nama_file;
         }
 
@@ -157,6 +163,8 @@ class BarangLelang extends Controller
             $nama_file = time().Str::random(3).'.'.$request->foto3->extension();
             $request->foto3->move('img',$nama_file);
 
+            
+            Storage::delete($barang_lelang->foto3);
             $barang_lelang->foto3 = $nama_file;
         }
 
@@ -167,6 +175,8 @@ class BarangLelang extends Controller
             $nama_file = time().Str::random(3).'.'.$request->video->extension();
             $request->video->move('img',$nama_file);
 
+            
+            Storage::delete($barang_lelang->video);
             $barang_lelang->video = $nama_file;
         }
 
