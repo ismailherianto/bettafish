@@ -16,12 +16,7 @@
             </div>
             
           </div>
-          <div class="side-box text-center">
-            <img src="{{asset('temp_web/images/person_3.jpg')}}" alt="Image" class="img-fluid w-50 rounded-circle mb-4">
-            <h3 class="h5 text-black">Collen Winston</h3>
-            <span class="mb-3 d-block text-muted">Owner</span>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil repudiandae recusandae, incidunt possimus provident vel facilis!</p>
-          </div>
+          
         </div>
         <div class="col-lg-8 pr-lg-5">
           <div class="owl-carousel slide-one-item mb-5">
