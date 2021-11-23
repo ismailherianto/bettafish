@@ -15,7 +15,7 @@
       <div class="col-6 col-md-4 col-lg-3">
         <div class="item">
           <div>
-            <a href="{{route('single-lelang',$item->id)}}"><img src="img/{{$item->foto}}" alt="Image" class="img-fluid"></a>
+            <a href="{{route('single-lelang',$item->id)}}"><img src="{{asset('img/'.$item->foto)}}" alt="Image" class="img-fluid"></a>
           </div>
           <div class="p-4">
             <div class="d-flex mb-2">

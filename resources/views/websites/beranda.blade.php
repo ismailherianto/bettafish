@@ -85,7 +85,7 @@
               </div>
               <div class="d-flex mb-2">
                 <span>Keterangan</span>
-                @if ($item->status == '1')
+                @if ($item_toko->status == '1')
                   <span class="ml-auto">Tersedia</span>
                 @else
                   <span class="ml-auto">Habis</span>

@@ -15,7 +15,7 @@
       <div class="col-6 col-md-4 col-lg-3">
         <div class="item">
           <div>
-            <a href="{{route('single-toko',$item_toko->id)}}"><img src="img/{{$item_toko->foto}}" alt="Image" class="img-fluid"></a>
+            <a href="{{route('single-toko',$item_toko->id)}}"><img src="{{asset('img/'.$item_toko->foto)}}" alt="Image" class="img-fluid"></a>
           </div>
           <div class="p-4">
             <div class="d-flex mb-2">
@@ -28,7 +28,7 @@
             </div>
             <div class="d-flex mb-2">
               <span>Keterangan</span>
-              @if ($item->status == '1')
+              @if ($item_toko->status == '1')
                 <span class="ml-auto">Tersedia</span>
               @else
                 <span class="ml-auto">Habis</span>
