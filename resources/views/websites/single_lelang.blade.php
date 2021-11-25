@@ -7,23 +7,30 @@
         <div class="col-lg-3 order-lg-2">
           <div class="side-box mb-4">
             <p>
-              Harga Buka <strong class="text-black">Rp. {{number_format(200000)}}</strong> <br>
-              Tanggal Tutup <strong class="text-black">{{date('d-m-Y')}}</strong>
+              Harga Buka <strong class="text-black">Rp. {{number_format($brg_lelang->harga_buka)}}</strong> <br>
+              Tanggal Tutup <strong class="text-black">{{\Carbon\Carbon::parse($brg_lelang->tgl_tutup)->format('d-m-Y')}}</strong>
             </p>
-            <form action="#">
+            @guest
+             <a class="btn btn-primary" href="{{route('login')}}">Login/Register</a>
+            @else
+            <form method="POST" action="route('tawar)">
               <div class="mb-4">
-                <input type="text" class="form-control mb-2" placeholder="Input Harga">
+                <input type="number" min="{{$brg_lelang->harga_buka}}" class="form-control mb-2" placeholder="Input Harga">
                 <button class="btn btn-block">Tawar</button>
               </div>
             </form>
+            @endguest
           </div>
           
         </div>
         <div class="col-lg-8 pr-lg-5">
           <div class="owl-carousel slide-one-item mb-5">
-            <img src="{{asset('temp_web/images/product_1.jpg')}}" alt="Image" class="img-fluid mb-54">
-            <img src="{{asset('temp_web/images/product_1.jpg')}}" alt="Image" class="img-fluid mb-54">
-            <img src="{{asset('temp_web/images/product_1.jpg')}}" alt="Image" class="img-fluid mb-54">
+            <img src="{{asset('img/'.$brg_lelang->foto)}}" alt="Image" class="img-fluid mb-54">
+            <img src="{{asset('img/'.$brg_lelang->foto2)}}" alt="Image" class="img-fluid mb-54">
+            <img src="{{asset('img/'.$brg_lelang->foto3)}}" alt="Image" class="img-fluid mb-54">
+            @if (!empty($brg_lelang->video))
+            <video src="{{asset('img/'.$brg_lelang->video)}}" alt="Video" class="img-fluid mb-54"></video>
+            @endif
           </div>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A, dolore, vitae. Maxime natus, temporibus accusamus aspernatur hic, impedit consectetur ut assumenda quidem mollitia et, praesentium ex eum ipsum. Explicabo, saepe.</p>
           <p>Ducimus, pariatur, culpa nihil molestias ea repellendus adipisci harum ipsam perferendis, quisquam nulla ipsa fugit! Minima velit explicabo eos, perspiciatis facilis illo, architecto earum sed dolores maiores vitae soluta repellat.</p>

@@ -46,7 +46,13 @@ class Web extends Controller
 
     public function single_lelang($id)
     {   
-         return view('websites.single_lelang');
+         $brg_lelang = mLelang::find($id); 
+         return view('websites.single_lelang',compact('brg_lelang'));
+    }
+
+    public function tawar(Request $request, $id)
+    {
+         dd($request,$id);
     }
 
     public function single_toko($id)
@@ -54,8 +60,8 @@ class Web extends Controller
          return view('websites.single_toko');
     }
 
-    public function login_regist()
-    {   
-         return view('websites.login');
-    }
+//     public function login_regist()
+//     {   
+//          return view('websites.login');
+//     }
 }

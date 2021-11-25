@@ -28,7 +28,8 @@ Route::group(['middleware'=>['web','cekuser:0','cekstatus:1']],function(){
     Route::get('/web/single-toko/{id}', 'Web@single_toko')->name('single-toko');
     Route::get('/web/single-lelang/{id}', 'Web@single_lelang')->name('single-lelang');
 
-    //progres
+    //progress
+    Route::post('tawar','Web@tawar')->name('tawar');
 });
 
 
