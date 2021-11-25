@@ -180,7 +180,7 @@ class BarangLelang extends Controller
             $barang_lelang->video = $nama_file;
         }
 
-        $barang_lelang->save();
+        $barang_lelang->update();
 
         return redirect()->route('master_brg_lelang');
     }

@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return redirect()->route('website');
 });
+
 Auth::routes();
 Route::group(['middleware'=>['web','cekuser:0','cekstatus:1']],function(){
     Route::get('/web', 'Web@index')->name('website');
@@ -32,8 +33,10 @@ Route::group(['middleware'=>['web','cekuser:0','cekstatus:1']],function(){
 
 
 Route::group(['middleware'=>['web','cekuser:1','cekstatus:1']],function(){
-    Route::post('register','User@store')->name('register_user');
     Route::get('/admin', 'HomeController@index')->name('home');
+    Route::post('register','User@store')->name('register_user');
+    Route::get('/admin/user', 'User@index')->name('master_user');
+    Route::resource('user','User');
     //Lelang
     Route::get('/admin/barang-lelang', 'BarangLelang@index')->name('master_brg_lelang');
     Route::resource('brg_lelang','BarangLelang');

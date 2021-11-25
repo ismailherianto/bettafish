@@ -176,7 +176,7 @@ class BarangToko extends Controller
             $barang_toko->video = $nama_file;
         }
 
-        $barang_toko->save();
+        $barang_toko->update();
 
         return redirect()->route('master_brg_toko');
     }

@@ -44,10 +44,7 @@
                         <label for="instagram">Instagram</label>
                         <input name="instagram" value="{{$info_toko->instagram}}" id="instagram" type="text" class="form-control" placeholder="Instagram">
                     </div>
-                    <div class="form-group">
-                      <label for="desc">Deskripsi</label>
-                      <textarea class="form-control" name="desc" id="desc">{{$info_toko->deskripsi}}</textarea>
-                    </div>
+                    
                 </div>
                 <!-- /.box-body -->
         

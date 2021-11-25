@@ -110,7 +110,7 @@
           </a>
         </li>
         <li>
-            <a href="#">
+            <a href="{{route('master_user')}}">
                 <i class="fa fa-user"></i> <span>User/Member</span>
             </a>
         </li>

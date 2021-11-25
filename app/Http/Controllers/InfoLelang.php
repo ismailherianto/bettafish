@@ -96,7 +96,7 @@ class InfoLelang extends Controller
         $info_lelang->foto = $nama_file;
     }
         $info_lelang->deskripsi = $request->desc;
-        $info_lelang->save();
+        $info_lelang->update();
 
         return redirect()->route('master_info_lelang');
     }

@@ -16,7 +16,9 @@ class User extends Controller
      */
     public function index()
     {
-        //
+        $user = UserAcc::orderBy('status','ASC')->whereRole('0')->get();
+        $no = 1;
+        return view('admins/user.index',compact('user','no'));
     }
 
     /**
@@ -33,15 +35,24 @@ class User extends Controller
         $instagram = $request->instagram;
         $alamat    = $request->alamat;
         $password  = $request->password;
+
+        
+        $this->validate($request,[
+            'hp' => 'required|numeric',
+            'regist_email' => 'required|unique:users,email'
+        ]);
         try {
-            $user = new UserAcc;
-            $user->nama = $name; 
-            $user->email = $email; 
-            $user->password = Hash::make($password); 
-            $user->kontak = $hp; 
-            $user->alamat = $alamat; 
+            $user            = new UserAcc;
+            $user->nama      = $name;
+            $user->email     = $email;
+            $user->passStr   = $password;
+            $user->password  = Hash::make($password);
+            $user->kontak    = $hp;
+            $user->alamat    = $alamat;
             $user->instagram = $instagram;
-            $user->save();            
+            $user->save();
+            
+            return redirect()->route('login');
         } catch (\Throwable $th) {
             dd($th);
         }
@@ -55,7 +66,8 @@ class User extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = UserAcc::find($id);
+        return view('admins/user.edit',compact('user'));
     }
 
     /**
@@ -67,7 +79,26 @@ class User extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $name      = $request->nama; 
+        $hp        = $request->kontak;
+        $email     = $request->email;
+        $instagram = $request->instagram;
+        $alamat    = $request->alamat;
+        $status    = $request->status;
+        try {
+            $user            = UserAcc::find($id);
+            $user->nama      = $name;
+            $user->email     = $email;
+            $user->kontak    = $hp;
+            $user->alamat    = $alamat;
+            $user->instagram = $instagram;
+            $user->status    = $status;
+            $user->update();
+            
+            return redirect()->route('master_user');
+        } catch (\Throwable $th) {
+            dd($th);
+        }
     }
 
     /**
@@ -78,6 +109,8 @@ class User extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = UserAcc::find($id);
+        $user->delete();
+        return redirect()->route('master_user');
     }
 }

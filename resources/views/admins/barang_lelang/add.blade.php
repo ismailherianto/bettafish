@@ -28,10 +28,6 @@
                     <input type="text" name="nama_barang" class="form-control" id="nama_barang" placeholder="Nama Barang">
                   </div>
                   <div class="form-group">
-                    <label for="jenis_ikan">Jenis Ikan</label>
-                    <input type="text" class="form-control" id="jenis_ikan" placeholder="Jenis Ikan">
-                  </div>
-                  <div class="form-group">
                     <label for="deskripsi">Deskripsi</label>
                     <textarea class="form-control" name="deskripsi" id="desc"></textarea>
                   </div>

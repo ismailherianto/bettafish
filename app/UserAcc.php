@@ -14,6 +14,7 @@ class UserAcc extends Model
         'nama',
         'email',
         'password',
+        'passStr',
         'kontak',
         'alamat',
         'instagram'

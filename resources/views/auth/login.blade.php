@@ -12,18 +12,24 @@
             <div class="row">
               <div class="col-md-12 form-group">
                 <label for="useremail">Email</label>
-                <input required type="email" @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" id="useremail" name="useremail" class="form-control form-control-lg">
-              </div>
-              @error('email')
-                  <span class="invalid-feedback" role="alert">
-                      <strong>{{ $message }}</strong>
+                <input required type="email" name="email" value="{{ old('email') }}" id="useremail" name="useremail" class="form-control form-control-lg @error('email') is-invalid @enderror">
+                @error('email')
+                  <span style="color: red" role="alert">
+                      <strong>Akun belum diaktifkan/terdaftar</strong>
                   </span>
-              @enderror
+                @enderror
+              </div>
+              
             </div>
             <div class="row">
               <div class="col-md-12 form-group">
                 <label for="passlogin">Password</label>
-                <input required type="password" id="passlogin" name="password" class="form-control form-control-lg">
+                <input required type="password"  id="passlogin" name="password" class="form-control form-control-lg @error('password') is-invalid @enderror">
+                @error('password')
+                  <span style="color: red" role="alert">
+                      <strong>Password Salah / Akun belum diaktifkan</strong>
+                  </span>
+                @enderror
               </div>
             </div>
             
@@ -37,40 +43,50 @@
         <div class="col-lg-5">
           <h2 class="mb-5 text-black"><strong>Registrasi</strong></h2>
 
-          <form method="POST" action="{{ route('register_user') }}">
+          <form method="POST" action="{{ route('register') }}">
             @csrf
             <div class="row">
               <div class="col-md-12 form-group">
                 <label for="name">Nama Lengkap</label>
-                <input required type="text" id="name" name="name" class="form-control form-control-lg">
+                <input required type="text" id="name" name="name" value="{{old('name')}}" class="form-control form-control-lg">
               </div>
             </div>
 
             <div class="row">
               <div class="col-md-12 form-group">
                 <label for="hp">Nomor HP/WA</label>
-                <input required type="text" id="hp" name="hp" class="form-control form-control-lg">
+                <input required type="text" id="hp" value="{{old('hp')}}" name="hp" class="form-control form-control-lg @error('hp') is-invalid @enderror">
+                @error('hp')
+                  <span style="color: red" role="alert">
+                      <strong>Nomor Tidak Valid</strong>
+                  </span>
+                @enderror
               </div>
             </div>
 
             <div class="row">
               <div class="col-md-12 form-group">
                 <label for="femail">Email</label>
-                <input required type="email" id="email" name="email" class="form-control form-control-lg">
+                <input required type="email" id="email" value="{{old('emails')}}" name="emails" class="form-control form-control-lg @error('regist_email') is-invalid @enderror">
+                @error('regist_email')
+                  <span style="color: red" role="alert">
+                      <strong>Email Telah Digunakan</strong>
+                  </span>
+                @enderror
               </div>
             </div>
 
             <div class="row">
               <div class="col-md-12 form-group">
                 <label for="ig">Instagram</label>
-                <input required type="text" id="instagram" name="instagram" class="form-control form-control-lg">
+                <input required type="text" id="instagram" value="{{old('instagram')}}" name="instagram" class="form-control form-control-lg">
               </div>
             </div>
 
             <div class="row">
               <div class="col-md-12 form-group">
                 <label for="address">Alamat</label>
-                <input required type="text" id="address" name="alamat" class="form-control form-control-lg">
+                <input required type="text" id="address" name="alamat" value="{{old('alamat')}}" class="form-control form-control-lg">
               </div>
             </div>
 

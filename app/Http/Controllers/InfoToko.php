@@ -106,7 +106,7 @@ class InfoToko extends Controller
         $info_toko->alamat    = $request->alamat;
         $info_toko->instagram = $request->instagram;
         $info_toko->deskripsi = $request->desc;
-        $info_toko->save();
+        $info_toko->update();
 
         return redirect()->route('master_info_toko');
     }
