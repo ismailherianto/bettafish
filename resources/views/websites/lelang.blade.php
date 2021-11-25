@@ -36,7 +36,7 @@
             </div>
             <div class="d-flex mb-2">
               <span>Tanggal Tutup</span>
-              <span class="ml-auto">{{date($item->tgl_tutup)}}</span>
+              <span class="ml-auto">{{\Carbon\Carbon::parse($item->tgl_tutup)->format('d-m-Y')}}</span>
             </div>
           </div>
           

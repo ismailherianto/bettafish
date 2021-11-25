@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Penawaran_lelang;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -44,6 +45,10 @@ Route::group(['middleware'=>['web','cekuser:1','cekstatus:1']],function(){
     //Toko
     Route::get('/admin/barang-toko', 'BarangToko@index')->name('master_brg_toko');
     Route::resource('brg_toko','BarangToko');
+
+    //penawaran
+    Route::get('/admin/penawaran','Penawaran_lelang@index')->name('master_penawaran');
+    Route::resource('penawaran','Penawaran_lelang');
     // Info
     /* Lelang */
     Route::get('/admin/info_lelang','InfoLelang@index')->name('master_info_lelang');

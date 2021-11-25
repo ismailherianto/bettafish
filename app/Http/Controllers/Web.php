@@ -51,11 +51,16 @@ class Web extends Controller
     public function single_lelang($id)
     {   
          $brg_lelang = mLelang::find($id);
-
+         
          $today   = Carbon::now();
          $tutup   = Carbon::parse($brg_lelang->tgl_tutup);
-         $expired = $today->diffInDays($tutup);
-         $cekUser = Penawaran::whereUser_id(Auth::user()->id)->whereLelang_id($id)->count();
+
+         $expired = $today->greaterThan($tutup);
+         $cekUser = 0;
+         if(Auth::user())
+         {
+          $cekUser = Penawaran::whereUser_id(Auth::user()->id)->whereLelang_id($id)->count();
+         }
          $pending = Penawaran::wherePending('1')->whereLelang_id($id)->count();
 
          $list_peserta = Penawaran::with(['toUser','toLelang'])->orderBy('harga_tawar','desc')->get();
@@ -78,7 +83,9 @@ class Web extends Controller
 
     public function single_toko($id)
     {   
-         return view('websites.single_toko');
+          $brg_toko = mToko::find($id);
+          $toko = mInfoToko::first('kontak');
+          return view('websites.single_toko',compact('brg_toko','toko'));
     }
 
 //     public function login_regist()

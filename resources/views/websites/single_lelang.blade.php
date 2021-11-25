@@ -18,7 +18,7 @@
               <div class="mb-4">
                 <input type="hidden" name="id_brg" value="{{$brg_lelang->id}}">
                 <input type="number" name="harga" min="{{$brg_lelang->harga_buka}}" class="form-control mb-2" placeholder="Input Harga">
-                <button class="btn btn-block" @if($expired > 0 || $cekUser > 0 || $pending > 0) disabled @endif>Tawar</button>
+                <button class="btn btn-block" @if($expired == true || $cekUser > 0 || $pending > 0) disabled @endif>Tawar</button>
               </div>
             </form>
             @endguest
@@ -31,7 +31,7 @@
             <img src="{{asset('img/'.$brg_lelang->foto2)}}" alt="Image" class="img-fluid mb-54">
             <img src="{{asset('img/'.$brg_lelang->foto3)}}" alt="Image" class="img-fluid mb-54">
             @if (!empty($brg_lelang->video))
-            <video src="{{asset('img/'.$brg_lelang->video)}}" alt="Video" class="img-fluid mb-54"></video>
+            <video width="100%" src="{{asset('img/'.$brg_lelang->video)}}" alt="Video" controls></video>
             @endif
           </div>
           {!!$brg_lelang->keterangan!!}
@@ -49,7 +49,7 @@
                 </div>
                 <span>Rp. {{number_format($peserta->harga_tawar ?? 0)}}</span>
                 <span class="price">
-                  @if ($peserta->status == '1')
+                  @if ($peserta->pending == '1')
                       Terpilih
                   @else
                       Pending
