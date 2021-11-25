@@ -6,9 +6,9 @@
     <div class="container">
       <div class="row align-items-center justify-content-center">
         <div class="col-md-7 mx-auto text-center" data-aos="fade-up">
-          <h1>The Best Place to Buy and Sell</h1>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit, nihil.</p>
-          <p><a href="#" class="btn btn-primary">Register</a></p>
+          <h1>Register & Login</h1>
+          
+          <p><a href="{{route('login')}}" class="btn btn-primary">Register</a></p>
         </div>
       </div>
     </div>
