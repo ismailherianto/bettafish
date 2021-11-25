@@ -31,7 +31,7 @@ class User extends Controller
     {   
         $name      = $request->name; 
         $hp        = $request->hp;
-        $email     = $request->regist_email;
+        $email     = $request->emails;
         $instagram = $request->instagram;
         $alamat    = $request->alamat;
         $password  = $request->password;
@@ -39,7 +39,7 @@ class User extends Controller
         
         $this->validate($request,[
             'hp' => 'required|numeric',
-            'regist_email' => 'required|unique:users,email'
+            'emails' => 'required|unique:users,email'
         ]);
         try {
             $user            = new UserAcc;

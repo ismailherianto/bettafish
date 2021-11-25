@@ -12,7 +12,7 @@
             <div class="row">
               <div class="col-md-12 form-group">
                 <label for="useremail">Email</label>
-                <input required type="email" name="email" value="{{ old('email') }}" id="useremail" name="useremail" class="form-control form-control-lg @error('email') is-invalid @enderror">
+                <input required type="email" name="email" value="{{ old('email') }}" id="useremail" class="form-control form-control-lg @error('email') is-invalid @enderror">
                 @error('email')
                   <span style="color: red" role="alert">
                       <strong>Akun belum diaktifkan/terdaftar</strong>
@@ -43,7 +43,7 @@
         <div class="col-lg-5">
           <h2 class="mb-5 text-black"><strong>Registrasi</strong></h2>
 
-          <form method="POST" action="{{ route('register') }}">
+          <form method="POST" action="{{ route('register_user') }}">
             @csrf
             <div class="row">
               <div class="col-md-12 form-group">
@@ -67,8 +67,8 @@
             <div class="row">
               <div class="col-md-12 form-group">
                 <label for="femail">Email</label>
-                <input required type="regist_email" id="regist_email" value="{{old('emails')}}" name="emails" class="form-control form-control-lg @error('regist_email') is-invalid @enderror">
-                @error('regist_email')
+                <input required type="regist_email" id="regist_email" value="{{old('emails')}}" name="emails" class="form-control form-control-lg @error('emails') is-invalid @enderror">
+                @error('emails')
                   <span style="color: red" role="alert">
                       <strong>Email Telah Digunakan</strong>
                   </span>

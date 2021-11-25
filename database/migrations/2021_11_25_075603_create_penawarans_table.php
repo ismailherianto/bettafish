@@ -17,7 +17,7 @@ class CreatePenawaransTable extends Migration
         Schema::create('t_penawaran', function (Blueprint $table) {
             $table->id();
             $table->integer('harga_tawar');
-            $table->enum('pending',['0','1']);
+            $table->enum('pending',['0','1'])->default('0');
             $table->integer('user_id')->nullable();
             $table->integer('lelang_id')->nullable()->unsigned();
             $table->foreign('user_id')->references('id')->on('users')->onUpdate('CASCADE')->onDelete('CASCADE');
