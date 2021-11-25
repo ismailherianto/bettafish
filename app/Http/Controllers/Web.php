@@ -7,7 +7,11 @@ use App\mInfoLelang;
 use App\mInfoToko;
 use App\mLelang;
 use App\mToko;
+use App\Penawaran;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 
 class Web extends Controller
 {
@@ -46,13 +50,30 @@ class Web extends Controller
 
     public function single_lelang($id)
     {   
-         $brg_lelang = mLelang::find($id); 
-         return view('websites.single_lelang',compact('brg_lelang'));
+         $brg_lelang = mLelang::find($id);
+
+         $today   = Carbon::now();
+         $tutup   = Carbon::parse($brg_lelang->tgl_tutup);
+         $expired = $today->diffInDays($tutup);
+         $cekUser = Penawaran::whereUser_id(Auth::user()->id)->whereLelang_id($id)->count();
+         $pending = Penawaran::wherePending('1')->whereLelang_id($id)->count();
+
+         $list_peserta = Penawaran::with(['toUser','toLelang'])->orderBy('harga_tawar','desc')->get();
+                   
+         return view('websites.single_lelang',compact('brg_lelang','list_peserta','expired','cekUser','pending'));
     }
 
-    public function tawar(Request $request, $id)
+    public function tawar(Request $request)
     {
-         dd($request,$id);
+
+         $penawaran              = new Penawaran;
+         $penawaran->harga_tawar = (int) $request->harga;
+         $penawaran->lelang_id   = (int) $request->id_brg;
+         $penawaran->user_id     = Auth::user()->id;
+         $penawaran->save();
+
+         return Redirect::back();
+         
     }
 
     public function single_toko($id)

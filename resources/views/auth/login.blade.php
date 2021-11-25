@@ -67,7 +67,7 @@
             <div class="row">
               <div class="col-md-12 form-group">
                 <label for="femail">Email</label>
-                <input required type="email" id="email" value="{{old('emails')}}" name="emails" class="form-control form-control-lg @error('regist_email') is-invalid @enderror">
+                <input required type="regist_email" id="regist_email" value="{{old('emails')}}" name="emails" class="form-control form-control-lg @error('regist_email') is-invalid @enderror">
                 @error('regist_email')
                   <span style="color: red" role="alert">
                       <strong>Email Telah Digunakan</strong>

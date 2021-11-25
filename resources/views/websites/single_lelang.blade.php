@@ -13,10 +13,12 @@
             @guest
              <a class="btn btn-primary" href="{{route('login')}}">Login/Register</a>
             @else
-            <form method="POST" action="route('tawar)">
+            <form method="POST" action="{{route('tawar')}}">
+              @csrf
               <div class="mb-4">
-                <input type="number" min="{{$brg_lelang->harga_buka}}" class="form-control mb-2" placeholder="Input Harga">
-                <button class="btn btn-block">Tawar</button>
+                <input type="hidden" name="id_brg" value="{{$brg_lelang->id}}">
+                <input type="number" name="harga" min="{{$brg_lelang->harga_buka}}" class="form-control mb-2" placeholder="Input Harga">
+                <button class="btn btn-block" @if($expired > 0 || $cekUser > 0 || $pending > 0) disabled @endif>Tawar</button>
               </div>
             </form>
             @endguest
@@ -32,26 +34,29 @@
             <video src="{{asset('img/'.$brg_lelang->video)}}" alt="Video" class="img-fluid mb-54"></video>
             @endif
           </div>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A, dolore, vitae. Maxime natus, temporibus accusamus aspernatur hic, impedit consectetur ut assumenda quidem mollitia et, praesentium ex eum ipsum. Explicabo, saepe.</p>
-          <p>Ducimus, pariatur, culpa nihil molestias ea repellendus adipisci harum ipsam perferendis, quisquam nulla ipsa fugit! Minima velit explicabo eos, perspiciatis facilis illo, architecto earum sed dolores maiores vitae soluta repellat.</p>
-          <p>Suscipit dolor consequuntur cum illo eos, perspiciatis voluptas ut, officia quos minus. Adipisci in consequatur, suscipit ipsum, doloribus dolorem vel quod blanditiis fugiat recusandae. Illum tenetur impedit eligendi cum qui.</p>
+          {!!$brg_lelang->keterangan!!}
           
 
           <h2 class="my-4">Pelelang</h2>
           <ul class="list-unstyled bidders">
-            @for ($i = 1; $i <= 3; $i++)
+            @foreach ($list_peserta as $key => $peserta)
             <li class="d-flex justify-content-between align-items-center">
                 <div class="d-flex align-items-center">
-                  <span class="mr-2">{{$i}}.</span>
+                  <span class="mr-2">{{$key+1}}.</span>
                   <div class="d-flex align-items-center">
-                    <img src="{{asset('temp_web/images/person_1.jpg')}}" alt="Image" class="mr-2">
-                    <span>Jean Smith</span>
+                    <span>{{$peserta->toUser->nama ?? ''}}</span>
                   </div>
                 </div>
-                <span>Rp. {{number_format(200000)}}</span>
-                <span class="price">Pending</span>
+                <span>Rp. {{number_format($peserta->harga_tawar ?? 0)}}</span>
+                <span class="price">
+                  @if ($peserta->status == '1')
+                      Terpilih
+                  @else
+                      Pending
+                  @endif
+                </span>
             </li>
-            @endfor
+            @endforeach
           </ul>
         </div>
       </div>

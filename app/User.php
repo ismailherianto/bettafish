@@ -28,6 +28,11 @@ class User extends Authenticatable
         'instagram'
     ];
 
+    public function toPenawaran()
+    {
+        return $this->hasOne(Penawaran::class,'user_id','id');
+    }
+
    
 
     

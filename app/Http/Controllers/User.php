@@ -31,7 +31,7 @@ class User extends Controller
     {   
         $name      = $request->name; 
         $hp        = $request->hp;
-        $email     = $request->email;
+        $email     = $request->regist_email;
         $instagram = $request->instagram;
         $alamat    = $request->alamat;
         $password  = $request->password;
