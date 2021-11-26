@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\mLelang;
 use App\Penawaran;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
@@ -16,7 +17,15 @@ class Penawaran_lelang extends Controller
      */
     public function index()
     {
-        $penawaran = Penawaran::with(['toUser','toLelang'])->orderBy('id','DESC')->get();
+        $penawaran = mLelang::orderBy('kode_lelang','ASC')->get();
+        return view('admins/penawaran.dash',compact('penawaran'));
+    }
+
+    public function show($kode)
+    {
+        $penawaran = Penawaran::with(['toUser','toLelang' => function($query) use ($kode){
+            $query->whereKode_lelang($kode);
+        }])->orderBy('id','DESC')->get();
         return view('admins/penawaran.index',compact('penawaran'));
     }
 
