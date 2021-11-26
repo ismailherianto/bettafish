@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\mLelang;
-use App\mToko;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
@@ -41,11 +40,12 @@ class BarangLelang extends Controller
     public function store(Request $request)
     {
     
-        $barang_lelang = new mLelang();
-        $barang_lelang->brand = $request->nama_barang;
-        $barang_lelang->keterangan = $request->deskripsi;
-        $barang_lelang->tgl_tutup = $request->tgl_tutup;
-        $barang_lelang->harga_buka = $request->hrg_buka;
+        $barang_lelang              = new mLelang();
+        $barang_lelang->brand       = $request->nama_barang;
+        $barang_lelang->keterangan  = $request->deskripsi;
+        $barang_lelang->tgl_tutup   = $request->tgl_tutup;
+        $barang_lelang->harga_buka  = $request->hrg_buka;
+        $barang_lelang->kode_lelang = $request->kode;
 
         if($request->hasFile('foto')){
             $request->validate([
@@ -116,11 +116,12 @@ class BarangLelang extends Controller
      */
     public function update(Request $request, $id)
     {
-        $barang_lelang = mLelang::find($id);
-        $barang_lelang->brand = $request->nama_barang;
-        $barang_lelang->keterangan = $request->deskripsi;
-        $barang_lelang->tgl_tutup = $request->tgl_tutup;
-        $barang_lelang->harga_buka = $request->hrg_buka;
+        $barang_lelang              = mLelang::find($id);
+        $barang_lelang->brand       = $request->nama_barang;
+        $barang_lelang->keterangan  = $request->deskripsi;
+        $barang_lelang->tgl_tutup   = $request->tgl_tutup;
+        $barang_lelang->harga_buka  = $request->hrg_buka;
+        $barang_lelang->kode_lelang = $request->kode;
 
         if($request->hasFile('foto')){
             $request->validate([

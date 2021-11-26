@@ -25,6 +25,10 @@
                 @method('PUT')
                 <div class="box-body">
                   <div class="form-group">
+                    <label for="kode">Kode Lelang</label>
+                    <input type="text" name="kode" value="{{$brg_lelang->kode_lelang}}" class="form-control" id="kode" placeholder="Kode Lelang">
+                  </div>
+                  <div class="form-group">
                     <label for="nama_barang">Nama Barang</label>
                     <input type="text" name="nama_barang" value="{{$brg_lelang->brand}}" class="form-control" id="nama_barang" placeholder="Nama Barang">
                   </div>
