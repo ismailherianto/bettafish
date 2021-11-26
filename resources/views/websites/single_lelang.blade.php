@@ -27,9 +27,18 @@
         </div>
         <div class="col-lg-8 pr-lg-5">
           <div class="owl-carousel slide-one-item mb-5">
-            <img src="{{asset('img/'.$brg_lelang->foto)}}" alt="Image" class="img-fluid mb-54">
+            @if (!empty($brg_lelang->foto))
+            <img src="{{asset('img/'.$brg_lelang->foto)}}" alt="Image" class="img-fluid mb-54">   
+            @endif
+
+            @if (!empty($brg_lelang->foto2))
             <img src="{{asset('img/'.$brg_lelang->foto2)}}" alt="Image" class="img-fluid mb-54">
+            @endif
+
+            @if (!empty($brg_lelang->foto3))
             <img src="{{asset('img/'.$brg_lelang->foto3)}}" alt="Image" class="img-fluid mb-54">
+            @endif
+            
             @if (!empty($brg_lelang->video))
             <video width="100%" src="{{asset('img/'.$brg_lelang->video)}}" alt="Video" controls></video>
             @endif

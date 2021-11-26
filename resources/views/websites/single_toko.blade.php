@@ -20,9 +20,18 @@
         </div>
         <div class="col-lg-8 pr-lg-5">
           <div class="owl-carousel slide-one-item mb-5">
-            <img src="{{asset('img/'.$brg_toko->foto)}}" alt="Image" class="img-fluid mb-54">
+            @if (!empty($brg_toko->foto))
+            <img src="{{asset('img/'.$brg_toko->foto)}}" alt="Image" class="img-fluid mb-54">   
+            @endif
+
+            @if (!empty($brg_toko->foto2))
             <img src="{{asset('img/'.$brg_toko->foto2)}}" alt="Image" class="img-fluid mb-54">
+            @endif
+
+            @if (!empty($brg_toko->foto3))
             <img src="{{asset('img/'.$brg_toko->foto3)}}" alt="Image" class="img-fluid mb-54">
+            @endif
+
             @if (!empty($brg_toko->video))
             <video width="100%" src="{{asset('img/'.$brg_toko->video)}}" alt="Video" controls></video>
             @endif
