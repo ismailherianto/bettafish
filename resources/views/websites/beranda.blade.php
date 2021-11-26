@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="hero-slide owl-carousel site-blocks-cover">
-  <div class="intro-section" style="background-image: url('images/hero_1.jpg');">
+  <div class="intro-section" style="background-image: url({{asset('temp_web/images/hero_1.jpg')}});">
     <div class="container">
       <div class="row align-items-center justify-content-center">
         <div class="col-md-7 mx-auto text-center" data-aos="fade-up">

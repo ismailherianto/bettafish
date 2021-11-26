@@ -42,7 +42,11 @@
         </div>
         <div class="col-lg-5">
           <h2 class="mb-5 text-black"><strong>Registrasi</strong></h2>
-
+          @if (\Session::has('success'))
+          <span style="color: green" role="alert">
+            <strong>{!!\Session::get('success')!!}</strong>
+          </span>
+          @endif
           <form method="POST" action="{{ route('register_user') }}">
             @csrf
             <div class="row">

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\UserAcc;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Redirect;
 
 class User extends Controller
 {
@@ -52,7 +53,7 @@ class User extends Controller
             $user->instagram = $instagram;
             $user->save();
             
-            return redirect()->route('login');
+            return Redirect::back()->with('success','Daftar Berhasil Silahkan Hubungi Admin...');
         } catch (\Throwable $th) {
             dd($th);
         }
