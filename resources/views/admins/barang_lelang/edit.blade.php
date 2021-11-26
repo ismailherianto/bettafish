@@ -38,7 +38,7 @@
                   </div>
                   <div class="form-group">
                     <label for="jenis_ikan">Tanggal tutup</label>
-                    <input type="date" name="tgl_tutup" class="form-control" id="tgl_tutup" placeholder="Tanggal Tutup">
+                    <input type="date" name="tgl_tutup" class="form-control" id="tgl_tutup" placeholder="Tanggal Tutup" required>
                   </div>
                   <div class="form-group">
                     <label for="jenis_ikan">Harga Buka</label>

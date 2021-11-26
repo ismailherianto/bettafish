@@ -19,6 +19,10 @@
           </div>
           <div class="p-4">
             <div class="d-flex mb-2">
+              <span>Kode</span>
+              <span class="ml-auto">{{$item->kode_lelang}}</span>
+            </div>
+            <div class="d-flex mb-2">
               <span>Jenis Ikan</span>
               <span class="ml-auto">{{$item->brand}}</span>
             </div>

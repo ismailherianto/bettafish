@@ -17,15 +17,22 @@ class Penawaran_lelang extends Controller
      */
     public function index()
     {
-        $penawaran = mLelang::orderBy('kode_lelang','ASC')->get();
+        $penawaran = mLelang::orderBy('kode_lelang','ASC')->get()->unique('kode_lelang');
         return view('admins/penawaran.dash',compact('penawaran'));
     }
 
     public function show($kode)
     {
+        $barang = mLelang::whereKode_lelang($kode)->first('id');
+        
+
         $penawaran = Penawaran::with(['toUser','toLelang' => function($query) use ($kode){
             $query->whereKode_lelang($kode);
-        }])->orderBy('id','DESC')->get();
+        }])
+            ->whereLelang_id($barang->id)
+            ->orderBy('id','DESC')
+            ->get();
+            
         return view('admins/penawaran.index',compact('penawaran'));
     }
 

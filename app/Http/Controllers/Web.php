@@ -30,7 +30,7 @@ class Web extends Controller
 
     public function barang_lelang()
     {   
-         $lelang = mLelang::orderBy('tgl_tutup','desc')->get();
+         $lelang = mLelang::orderBy('kode_lelang','ASC')->get();
          return view('websites.lelang',compact('lelang'));
     }
 
@@ -52,8 +52,9 @@ class Web extends Controller
     {   
          $brg_lelang = mLelang::find($id);
          
-         $today   = Carbon::now();
-         $tutup   = Carbon::parse($brg_lelang->tgl_tutup);
+         $today       = Carbon::now();
+         $tutup       = Carbon::parse($brg_lelang->tgl_tutup);
+         $kode_lelang = $brg_lelang->kode_lelang;
 
          $expired = $today->greaterThan($tutup);
          $cekUser = 0;
@@ -63,7 +64,13 @@ class Web extends Controller
          }
          $pending = Penawaran::wherePending('1')->whereLelang_id($id)->count();
 
-         $list_peserta = Penawaran::with(['toUser','toLelang'])->orderBy('harga_tawar','desc')->get();
+
+
+         $list_peserta = Penawaran::with(['toUser','toLelang' => function($query) use ($kode_lelang) {
+               $query->whereKode_lelang($kode_lelang);
+         }])->whereLelang_id($id)
+            ->orderBy('harga_tawar','desc')
+            ->get();
                    
          return view('websites.single_lelang',compact('brg_lelang','list_peserta','expired','cekUser','pending'));
     }
