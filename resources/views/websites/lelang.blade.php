@@ -32,11 +32,7 @@
             </div>
             <div class="d-flex mb-2">
               <span>Status</span>
-              @if ($item->status == '1')
                 <span class="ml-auto">Berlangsung</span>
-              @else
-                <span class="ml-auto">Tutup</span>
-              @endif
             </div>
             <div class="d-flex mb-2">
               <span>Tanggal Tutup</span>
