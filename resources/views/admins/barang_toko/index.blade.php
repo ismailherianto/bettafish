@@ -26,6 +26,7 @@
             <table id="table" class="table table-bordered table-striped">
               <thead>
               <tr>
+                <th>No.</th>
                 <th>Nama Barang</th>
                 <th>Harga</th>
                 <th>Foto 1</th>
@@ -37,8 +38,9 @@
               </tr>
               </thead>
               <tbody>
-              @foreach ($barang_toko as $item)
+              @foreach ($barang_toko as $key => $item)
                 <tr>
+                  <td>{{$key + 1}}</td>
                   <td>{{$item->brand}}</td>
                   <td>{{number_format($item->harga)}}</td>
                   <td><img src="{{asset('img/'.$item->foto)}}" width="150" alt=""></td>
@@ -57,7 +59,7 @@
                       
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="btn btn-danger btn-xs">Hapus</button>
+                        <button type="submit" onclick="return confirm('Apakah anda yakin untuk hapus data ini ?')" class="btn btn-danger btn-xs">Hapus</button>
                       </form>
                     </div>
                   </td>

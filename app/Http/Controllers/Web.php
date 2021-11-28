@@ -15,9 +15,11 @@ use Illuminate\Support\Facades\Redirect;
 
 class Web extends Controller
 {
+
     public function index()
     {   
-         $lelang = mLelang::orderBy('tgl_tutup','desc')->get();
+         $today = Carbon::parse(Carbon::now())->format('Y-m-d');
+         $lelang = mLelang::where('tgl_tutup','>',$today)->orderBy('tgl_tutup','ASC')->get();
          $toko   = mToko::orderBy('brand','asc')->get();
          return view('websites.beranda',compact('lelang','toko'));
     }
@@ -30,7 +32,8 @@ class Web extends Controller
 
     public function barang_lelang()
     {   
-         $lelang = mLelang::orderBy('kode_lelang','ASC')->get();
+         $today = Carbon::parse(Carbon::now())->format('Y-m-d');
+         $lelang = mLelang::where('tgl_tutup','>',$today)->orderBy('kode_lelang','ASC')->get();
          return view('websites.lelang',compact('lelang'));
     }
 

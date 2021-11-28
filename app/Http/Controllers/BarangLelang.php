@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\mLelang;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
@@ -166,9 +167,6 @@ class BarangLelang extends Controller
             $nama_file = time().Str::random(3).'.'.$request->video->extension();
             $request->video->move('img',$nama_file);
 
-            
-            Storage::delete($barang_lelang->video);
-            $barang_lelang->video = $nama_file;
         }
 
         $barang_lelang->update();
@@ -184,6 +182,13 @@ class BarangLelang extends Controller
      */
     public function destroy($id)
     {
-        //
+        try {
+            $brg_lelang = mLelang::find($id);
+            $brg_lelang->delete();
+            
+            return Redirect::back();
+        } catch (\Throwable $th) {
+            return Redirect::back()->withErrors([$brg_lelang->brand.' tidak bisa dihapus, terdapat relasi di tabel penawaran']);
+        }
     }
 }

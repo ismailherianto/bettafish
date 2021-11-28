@@ -104,37 +104,37 @@
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
-        <li class="active">
+        <li class="{{Request::is('admin') ? 'active' : ''}}">
           <a href="{{route('home')}}">
             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
           </a>
         </li>
-        <li>
+        <li class="{{Request::is('admin/user') ? 'active' : ''}}">
             <a href="{{route('master_user')}}">
                 <i class="fa fa-user"></i> <span>User/Member</span>
             </a>
         </li>
-        <li>
+        <li class="{{Request::is('admin/barang-lelang') || Request::is('brg_lelang/*') ? 'active' : ''}}">
             <a href="{{route('master_brg_lelang')}}">
                 <i class="fa fa-bank"></i> <span>Lelang</span>
             </a>
         </li>
-        <li>
+        <li class="{{Request::is('admin/barang-toko') || Request::is('brg_toko/*') ? 'active' : ''}}">
             <a href="{{route('master_brg_toko')}}">
                 <i class="fa fa-cubes"></i> <span>Barang</span>
             </a>
         </li>
-        <li>
+        <li class="{{Request::is('admin/penawaran') || Request::is('penawaran/*') ? 'act  ive' : ''}}">
             <a href="{{route('master_penawaran')}}">
                 <i class="fa fa-commenting"></i> <span>Penawaran</span>
             </a>
         </li>
-        <li>
+        <li class="{{Request::is('admin/info_lelang') || Request::is('info_lelang/*') ? 'active' : ''}}">
             <a href="{{route('master_info_lelang')}}">
                 <i class="fa fa-bullhorn"></i> <span>Info Lelang</span>
             </a>
         </li>
-        <li>
+        <li class="{{Request::is('admin/info_toko') || Request::is('info_toko/*') ? 'active' : ''}}">
             <a href="{{route('master_info_toko')}}">
                 <i class="fa fa-desktop"></i> <span>Tentang Toko</span>
             </a>
