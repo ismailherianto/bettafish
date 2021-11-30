@@ -97,9 +97,4 @@ class Web extends Controller
           $toko = mInfoToko::first('kontak');
           return view('websites.single_toko',compact('brg_toko','toko'));
     }
-
-//     public function login_regist()
-//     {   
-//          return view('websites.login');
-//     }
 }

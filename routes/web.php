@@ -20,21 +20,24 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-Route::group(['middleware'=>['web','cekuser:0','cekstatus:1']],function(){
-    Route::get('/web', 'Web@index')->name('website');
-    Route::get('/web/barang-toko', 'Web@barang_toko')->name('toko');
-    Route::get('/web/barang-lelang', 'Web@barang_lelang')->name('lelang');
-    Route::get('/web/info-toko', 'Web@info_toko')->name('info-toko');
-    Route::get('/web/info-lelang', 'Web@info_lelang')->name('info-lelang');
-    Route::get('/web/single-toko/{id}', 'Web@single_toko')->name('single-toko');
-    Route::get('/web/single-lelang/{id}', 'Web@single_lelang')->name('single-lelang');
+
+Route::group(['middleware'=>['web','cekuser:0']],function(){
+Route::get('/web', 'Web@index')->name('website');
+Route::get('/web/barang-toko', 'Web@barang_toko')->name('toko');
+Route::get('/web/barang-lelang', 'Web@barang_lelang')->name('lelang');
+Route::get('/web/info-toko', 'Web@info_toko')->name('info-toko');
+Route::get('/web/info-lelang', 'Web@info_lelang')->name('info-lelang');    
+Route::get('/web/info-lelang', 'Web@info_lelang')->name('info-lelang');
+Route::get('/web/info-lelang', 'Web@info_lelang')->name('info-lelang');    
+Route::get('/web/single-toko/{id}', 'Web@single_toko')->name('single-toko');
+Route::get('/web/single-lelang/{id}', 'Web@single_lelang')->name('single-lelang');
 
     //progress
-    Route::post('tawar','Web@tawar')->name('tawar');
+Route::post('tawar','Web@tawar')->name('tawar');
 });
 
 
-Route::group(['middleware'=>['web','cekuser:1','cekstatus:1']],function(){
+Route::group(['middleware'=>['web','cekuser:1']],function(){
     Route::get('/admin', 'HomeController@index')->name('home');
     Route::post('register','User@store')->name('register_user');
     Route::get('/admin/user', 'User@index')->name('master_user');
