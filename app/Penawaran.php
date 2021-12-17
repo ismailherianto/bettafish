@@ -8,6 +8,12 @@ class Penawaran extends Model
 {
     protected $table = 't_penawaran';
     protected $primaryKey = 'id';
+
+    protected $fillable = [
+        'harga_tawar',
+        'lelang_id',
+        'user_id'
+    ];
     
     public function toUser()
     {

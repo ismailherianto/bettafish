@@ -86,10 +86,15 @@ class User extends Controller
         $instagram = $request->instagram;
         $alamat    = $request->alamat;
         $status    = $request->status;
+        $password  = $request->password;
         try {
             $user            = UserAcc::find($id);
             $user->nama      = $name;
             $user->email     = $email;
+            if(isset($password))
+            {
+                $user->password = Hash::make($password);
+            }
             $user->kontak    = $hp;
             $user->alamat    = $alamat;
             $user->instagram = $instagram;

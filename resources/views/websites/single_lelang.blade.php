@@ -18,7 +18,7 @@
               <div class="mb-4">
                 <input type="hidden" name="id_brg" value="{{$brg_lelang->id}}">
                 <input type="number" name="harga" min="{{$brg_lelang->harga_buka}}" class="form-control mb-2" placeholder="Input Harga">
-                <button class="btn btn-block" @if($expired == true || $cekUser > 0 || $pending > 0) disabled @endif>Tawar</button>
+                <button class="btn btn-block" @if($expired == true ) disabled @endif>Tawar</button>
               </div>
             </form>
             @endguest
@@ -47,26 +47,27 @@
           
 
           <h2 class="my-4">Pelelang</h2>
-          <ul class="list-unstyled bidders">
+          <table class="table" >
             @foreach ($list_peserta as $key => $peserta)
-            <li class="d-flex justify-content-between align-items-center">
-                <div class="d-flex align-items-center">
-                  <span class="mr-2">{{$key+1}}.</span>
-                  <div class="d-flex align-items-center">
-                    <span>{{$peserta->toUser->nama ?? ''}}</span>
-                  </div>
-                </div>
-                <span>Rp. {{number_format($peserta->harga_tawar ?? 0)}}</span>
-                <span class="price">
+            <tr>
+              <th>
+                <td>{{$key+1}}.</td>
+                <td>{{$peserta->toUser->nama ?? ''}}</td>
+                <td>Rp. {{number_format($peserta->harga_tawar ?? 0)}}</td>
+                <td>
                   @if ($peserta->pending == '1')
-                      Terpilih
-                  @else
-                      Pending
-                  @endif
-                </span>
-            </li>
+                        Terpilih
+                    @elseif($peserta->pending == '0')
+                        Pending
+                    @else
+                        Kalah Lelang
+                    @endif
+                </td>
+              </th>
+            </tr>
             @endforeach
-          </ul>
+          </table>
+         
         </div>
       </div>
     </div>

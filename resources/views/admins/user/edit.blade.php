@@ -38,8 +38,12 @@
                     </div>
                     <div class="form-group">
                         <label for="email">Email</label>
-                        <input name="email" id="email" value="{{$user->email}}" type="email" class="form-control" placeholder="Email Toko">
+                        <input name="email" id="email" value="{{$user->email}}" type="email" class="form-control" placeholder="Email">
                     </div>
+                    <div class="form-group">
+                      <label for="password">Password</label>
+                      <input name="password" id="password" value="" minlength="6" type="password" class="form-control" placeholder="Password">
+                  </div>
                     <div class="form-group">
                         <label for="instagram">Instagram</label>
                         <input name="instagram" value="{{$user->instagram}}" id="instagram" type="text" class="form-control" placeholder="Instagram">
