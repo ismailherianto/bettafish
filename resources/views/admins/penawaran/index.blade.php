@@ -31,7 +31,7 @@
                 <th>Barang</th>
                 <th>Harga</th>
                 <th>Harga Tawar</th>
-                <th>Tanggal Tutup</th>
+                <th>Tanggal Penawaran</th>
                 <th>Status</th>
                 <th>Aksi</th>
               </tr>
@@ -45,7 +45,7 @@
                   <td>{{number_format($item->toLelang->harga_buka)}}</td>
                   <td>{{number_format($item->harga_tawar)}}</td>
                   <td>{{\Carbon\Carbon::parse($item->tgl_tutup)->format('d-m-Y')}}</td>
-                  <td align="center">@if($item->pending == '0') Pending @else Terpilih @endif</td>
+                  <td align="center">@if($item->pending == '0') Pending @elseif($item->pending == '1') Terpilih @else Kalah Lelang @endif</td>
                   <td align="center">
                     <form action="{{ route('penawaran.update',$item->id) }}" method="POST">                        
                         @csrf
