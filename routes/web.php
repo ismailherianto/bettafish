@@ -51,6 +51,7 @@ Route::group(['middleware'=>['web','cekuser:1']],function(){
 
     //penawaran
     Route::get('/admin/penawaran','Penawaran_lelang@index')->name('master_penawaran');
+    Route::post('/admin/penawaran/{penawaran}','Penawaran_lelang@kalah')->name('kalah_lelang');
     Route::resource('penawaran','Penawaran_lelang');
     // Info
     /* Lelang */

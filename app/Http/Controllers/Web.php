@@ -70,7 +70,7 @@ class Web extends Controller
                ->orderBy('harga_tawar', 'desc')
                ->get();
 
-          return view('websites.single_lelang', compact('brg_lelang', 'list_peserta', 'expired', 'cekUser', 'pending'));
+          return view('websites.single_lelang', compact('brg_lelang', 'list_peserta', 'expired', 'pending'));
      }
 
      public function tawar(Request $request)

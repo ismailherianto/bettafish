@@ -44,7 +44,7 @@ class Penawaran_lelang extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update($id)
     {
         $penawaran = Penawaran::find($id);
         $cek = Penawaran::whereLelang_id($penawaran->lelang_id)->wherePending('1')->count();
@@ -53,6 +53,20 @@ class Penawaran_lelang extends Controller
           return redirect()->route('master_penawaran');
         }
         $penawaran->pending = '1';
+        $penawaran->update();
+
+        return redirect()->route('master_penawaran');
+    }
+
+    public function kalah($id)
+    {
+        $penawaran = Penawaran::find($id);
+        $cek = Penawaran::whereLelang_id($penawaran->lelang_id)->wherePending('1')->count();
+        if($cek > 0)
+        {
+          return redirect()->route('master_penawaran');
+        }
+        $penawaran->pending = null;
         $penawaran->update();
 
         return redirect()->route('master_penawaran');

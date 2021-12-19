@@ -47,11 +47,19 @@
                   <td>{{\Carbon\Carbon::parse($item->tgl_tutup)->format('d-m-Y')}}</td>
                   <td align="center">@if($item->pending == '0') Pending @elseif($item->pending == '1') Terpilih @else Kalah Lelang @endif</td>
                   <td align="center">
-                    <form action="{{ route('penawaran.update',$item->id) }}" method="POST">                        
+                    <div class="btn-group">
+                      <form action="{{ route('penawaran.update',$item->id) }}" method="POST">                        
                         @csrf
                         @method('PUT')
-                        <button type="submit" class="btn btn-danger btn-xs">Pilih</button>
-                    </form>
+                        <button type="submit" class="btn btn-success btn-xs">Pilih</button>
+                      </form>
+                      <br>
+                      <form action="{{ route('kalah_lelang',$item->id) }}" method="POST">                        
+                        @csrf
+                        @method('POST')
+                        <button type="submit" class="btn btn-danger btn-xs">Kalah</button>
+                      </form>
+                    </div>
                   </td>
                 </tr>
               @endforeach
