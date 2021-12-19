@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 26, 2021 at 01:38 PM
+-- Generation Time: Dec 19, 2021 at 08:31 AM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.8
 
@@ -93,7 +93,6 @@ CREATE TABLE `t_lelang` (
   `foto2` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `foto3` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `video` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `status` enum('0','1') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '1',
   `kode_lelang` varchar(11) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -106,7 +105,7 @@ CREATE TABLE `t_lelang` (
 CREATE TABLE `t_penawaran` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `harga_tawar` int(11) NOT NULL,
-  `pending` enum('0','1') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0',
+  `pending` enum('0','1') COLLATE utf8mb4_unicode_ci DEFAULT '0',
   `user_id` int(11) DEFAULT NULL,
   `lelang_id` int(10) UNSIGNED DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -224,7 +223,7 @@ ALTER TABLE `t_barang`
 -- AUTO_INCREMENT for table `t_infolelang`
 --
 ALTER TABLE `t_infolelang`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `t_lelang`
@@ -236,19 +235,19 @@ ALTER TABLE `t_lelang`
 -- AUTO_INCREMENT for table `t_penawaran`
 --
 ALTER TABLE `t_penawaran`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `t_tentangtoko`
 --
 ALTER TABLE `t_tentangtoko`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- Constraints for dumped tables
