@@ -6,11 +6,11 @@
     <div class="container">
       <div class="row align-items-center justify-content-center">
         <div class="col-md-7 mx-auto text-center" data-aos="fade-up">
-          //TAG LOGO
+          {{-- TAG LOGO --}}
           <span>
-            <img class="img-fluid" src="{{asset('temp_web/images/product_1.jpg')}}" alt="">
+            <img class="img-fluid" src="{{asset('temp_web/images/product_1.jpg')}}" alt="" style="width: 250px;margin-left:11rem">
           </span>
-          //END TAG LOGO
+          {{-- //END TAG LOGO --}}
           <h1>Register & Login</h1>
           
           <p><a href="{{route('login')}}" class="btn btn-primary">Register</a></p>
