@@ -143,8 +143,6 @@ class BarangLelang extends Controller
             $nama_file = time().Str::random(3).'.'.$request->foto2->extension();
             $request->foto2->move('img',$nama_file);
 
-            
-            Storage::delete($barang_lelang->foto2);
             $barang_lelang->foto2 = $nama_file;
         }
 
@@ -154,9 +152,7 @@ class BarangLelang extends Controller
             ]);
             $nama_file = time().Str::random(3).'.'.$request->foto3->extension();
             $request->foto3->move('img',$nama_file);
-
-            
-            Storage::delete($barang_lelang->foto3);
+           
             $barang_lelang->foto3 = $nama_file;
         }
 
@@ -164,8 +160,11 @@ class BarangLelang extends Controller
             $request->validate([
                 'video' => 'mimes:mp4',
             ]);
+            
             $nama_file = time().Str::random(3).'.'.$request->video->extension();
             $request->video->move('img',$nama_file);
+
+            $barang_lelang->video = $nama_file;
 
         }
 
